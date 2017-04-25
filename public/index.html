@@ -31,33 +31,6 @@
   </script>
 </body>
 
-<script type="text/javascript"> 
-// AJAX call here to get list of users
 
-var baseUrl = 'https://dev-477147.oktapreview.com';
-$.ajax({
-  url: baseUrl + '/api/v1/users/me',
-  type: 'GET',
-  xhrFields: { withCredentials: true },
-  accept: 'application/json'
-}).done(function(data) {
-    console.log(data);
-})
-.fail(function(xhr, textStatus, error) {
-  var title, message;
-  switch (xhr.status) {
-    case 403 :
-      title = xhr.responseJSON.errorSummary;
-      message = 'Please login to your Okta organization before running the test';
-      break;
-    default :
-      title = 'Invalid URL or Cross-Origin Request Blocked';
-      message = 'You must explicitly add this site (' + window.location.origin + ') to the list of allowed websites in your Okta Admin Dashboard';
-      break;
-  }
-  alert(title + ': ' + message);
-});
-
-</script>
 
 </html>
